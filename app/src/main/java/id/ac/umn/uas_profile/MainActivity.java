@@ -25,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        View view = inflater.inflate(R.layout.fragment_home, container, false);
-//        ImageButton houseworkBtn = (ImageButton) view.findViewById(R.id.houseworkButton);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
