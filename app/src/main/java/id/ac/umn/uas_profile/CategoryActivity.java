@@ -19,7 +19,7 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
 
         categoryList.add(new CategoryModel(R.drawable.pablo, "Ashli", "Cleaning, Gardening, Cooking", "Serpong, 1.2 km", 4.5));
-        categoryList.add(new CategoryModel(R.drawable.pablo, "Hasli", "Babysitting, Petsitting", "BSD, 2.5 km", 3.8));
+        categoryList.add(new CategoryModel(R.drawable.yanfei, "Hasli", "Babysitting, Petsitting", "BSD, 2.5 km", 3.8));
         categoryList.add(new CategoryModel(R.drawable.pablo, "Lisha", "Gardening, Cooking", "Alam Sutera, 5.2 km", 4.8));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
