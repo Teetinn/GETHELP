@@ -79,11 +79,26 @@
             android:fontFamily="@font/poppins_medium"
             android:onClick="signUp"
             android:text="@string/dont_have_acc"
-            android:textColor="@color/text" />
+            android:textColor="@color/text"
+            tools:ignore="TouchTargetSizeCheck" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:indeterminateTint="@color/heading"
+            android:indeterminateTintMode="src_in"
+            android:minWidth="50dp"
+            android:minHeight="50dp"
+            android:visibility="invisible" />
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/background_btm"

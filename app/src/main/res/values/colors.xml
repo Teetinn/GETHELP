@@ -20,4 +20,6 @@
     <color name="bluePT">#666592</color>
     <color name="Blue_top_bar">#7d8aff</color>
     <color name="gray">#bfbfbf</color>
+
+    <color name="Red_logout">#FF4B4B</color>
 </resources>
