@@ -19,27 +19,16 @@
         android:layout_gravity="center"
         android:layout_marginTop="-130dp"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Edit Profile"
+        android:text="Profile"
         android:textColor="@color/white" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/etprofilePic"
+        android:id="@+id/profilePic"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:src="@drawable/pablo" />
-
-    <TextView
-        android:id="@+id/tvChangePict"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Change Picture"
-        android:textSize="12dp"
-        android:textStyle="bold" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,15 +38,18 @@
             android:id="@+id/verifymsg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Email Not Verified !"
             android:textColor="@color/Red_logout"
             android:textSize="18dp"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btnVerify"
@@ -69,6 +61,7 @@
             android:text="Verify"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/verifymsg" />
 
@@ -90,8 +83,8 @@
             android:textColor="@color/black"
             android:textSize="15dp" />
 
-        <EditText
-            android:id="@+id/etprofileName"
+        <TextView
+            android:id="@+id/profileName"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -110,8 +103,8 @@
             android:textColor="@color/black"
             android:textSize="15dp" />
 
-        <EditText
-            android:id="@+id/etprofileEmail"
+        <TextView
+            android:id="@+id/profileEmail"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -129,39 +122,65 @@
             android:textColor="@color/black"
             android:textSize="15dp" />
 
-        <EditText
-            android:id="@+id/etprofileNumber"
+        <TextView
+            android:id="@+id/profileNumber"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/input_form"
             android:padding="8dp"
             android:text="Phone number"
             android:textColor="@color/black"
             android:textSize="13dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
-            android:clickable="true"
-            android:fontFamily="@font/poppins_medium"
-            android:onClick="resetPassLocal"
-            android:text="@string/changeP"
-            tools:ignore="TouchTargetSizeCheck" />
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:fontFamily="@font/poppins_semibold"-->
+        <!--            android:text="Password"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="15dp" />-->
 
+        <!--        <EditText-->
+        <!--            android:layout_width="330dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:background="@drawable/input_form"-->
+        <!--            android:padding="8dp"-->
+        <!--            android:text="*******"-->
+        <!--            android:textSize="13dp" />-->
     </LinearLayout>
 
+    <!--    <Button-->
+    <!--        android:layout_width="280dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:backgroundTint="@color/black"-->
+    <!--        android:fontFamily="@font/poppins_semibold"-->
+    <!--        android:text="Update" />-->
+
+    <!--Button Logout Sementara-->
+
     <Button
-        android:id="@+id/btnUpdateInfo"
+        android:id="@+id/btnEdit"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/black"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/heading"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Update" />
+        android:text="Edit Profile" />
 
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Red_logout"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Logout" />
 </LinearLayout>

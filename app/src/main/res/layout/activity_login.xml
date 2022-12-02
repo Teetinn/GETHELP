@@ -61,6 +61,18 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:fontFamily="@font/poppins_medium"
+            android:onClick="Forgot"
+            android:text="@string/forgot"
+            android:textColor="@color/text"
+            tools:ignore="TouchTargetSizeCheck" />
+
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
@@ -71,6 +83,7 @@
         <View
             android:layout_width="wrap_content"
             android:layout_height="20dp" />
+
 
         <TextView
             android:layout_width="match_parent"
