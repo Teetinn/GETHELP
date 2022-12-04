@@ -7,18 +7,21 @@
     tools:context="id.ac.umn.uas_profile.SignUpActivity">
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:background="@drawable/background"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="20dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -47,6 +50,7 @@
             android:layout_height="wrap_content"
             android:hint="Name" />
 
+
         <EditText
             android:id="@+id/etEmailSignUp"
             android:layout_width="match_parent"
@@ -54,19 +58,24 @@
             android:hint="E-mail" />
 
         <EditText
+            android:id="@+id/etPNumberSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number" />
+
+        <EditText
             android:id="@+id/etPwSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            android:inputType="textPassword"
-            android:textColor="#61677D" />
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/etConfirmPwSignUp"
-            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirm Password" />
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/btnSignUp"
@@ -82,15 +91,29 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
             android:clickable="true"
+            android:fontFamily="@font/poppins_medium"
             android:onClick="signIn"
             android:text="@string/have_acc"
             android:textColor="@color/text" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:indeterminateTint="@color/heading"
+            android:indeterminateTintMode="src_in"
+            android:minWidth="50dp"
+            android:minHeight="50dp"
+            android:visibility="invisible" />
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@drawable/background_btm"

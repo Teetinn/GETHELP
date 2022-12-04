@@ -9,6 +9,8 @@
     <!--    ela-->
     <string name="signup">Sign Up</string>
     <string name="signin">Sign In</string>
+    <string name="forgot"><font color='#7D8AFF'>Forgot password?</font></string>
+    <string name="changeP"><font color='#7D8AFF'>Change Password</font></string>
     <string name="dont_have_acc">Don\'t have an account? <font color='#7D8AFF'>Sign Up</font></string>
     <string name="have_acc">Already have an account? <font color='#7D8AFF'>Login</font></string>
     <string name="title_activity_login2">LoginActivity2</string>

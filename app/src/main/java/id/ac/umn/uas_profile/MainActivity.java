@@ -2,18 +2,14 @@ package id.ac.umn.uas_profile;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import id.ac.umn.uas_profile.databinding.ActivityMainBinding;
 
@@ -24,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+//        View view = inflater.inflate(R.layout.fragment_home, container, false);
+//        ImageButton houseworkBtn = (ImageButton) view.findViewById(R.id.houseworkButton);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -41,15 +41,19 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-    public void buttonClick(View v){
-        switch(v.getId()){
+    public void buttonClick(View v) {
+        switch (v.getId()) {
             case R.id.houseworkButton:
                 Intent goToCategory = new Intent(this, CategoryActivity.class);
                 startActivity(goToCategory);
                 break;
+//           case R.id.profilePic:
+//                Intent goToEdit = new Intent(this, EditProfileActivity.class);
+//                startActivity(goToEdit);
+//                break;
             case R.id.profilePic:
-                Intent goToEdit = new Intent(this, EditProfile.class);
-                startActivity(goToEdit);
+                Intent goToProfile = new Intent(this, ProfileActivity.class);
+                startActivity(goToProfile);
                 break;
         }
     }
