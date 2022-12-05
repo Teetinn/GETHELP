@@ -41,6 +41,14 @@ public class HomeFragment extends Fragment {
         fAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        ProfilePictShow();
+
+        final TextView textView = binding.textHome;
+        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        return root;
+    }
+
+    public void ProfilePictShow() {
         StorageReference profileRef = storageReference.child("users/" + fAuth.getCurrentUser().getUid() + "/profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -48,18 +56,8 @@ public class HomeFragment extends Fragment {
                 Picasso.get().load(uri).into(profileImage);
             }
         });
-
-//
-
-//        return view;
-
-
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
     }
-
-
+    
     @Override
     public void onDestroyView() {
         super.onDestroyView();

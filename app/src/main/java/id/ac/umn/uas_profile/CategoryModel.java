@@ -3,11 +3,13 @@ package id.ac.umn.uas_profile;
 import java.io.Serializable;
 
 public class CategoryModel implements Serializable {
-    private String name, jobDesc, location;
-    private int image;
-    private double rating;
+    String name, jobDesc, location, image;
+    double rating;
 
-    public CategoryModel(int image, String name, String jobDesc, String location, double rating) {
+    public CategoryModel() {
+    }
+
+    public CategoryModel(String image, String name, String jobDesc, String location, double rating) {
         this.name = name;
         this.jobDesc = jobDesc;
         this.location = location;
@@ -39,11 +41,11 @@ public class CategoryModel implements Serializable {
         this.location = location;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

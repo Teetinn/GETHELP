@@ -168,26 +168,7 @@ public class SignUpActivity extends AppCompatActivity {
                     etConfirmPassword.requestFocus();
                     return;
                 }
-
                 progressBar.setVisibility(View.VISIBLE);
-
-                // Register the user in firebase
-
-//                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_SHORT).show();
-//                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-//
-//                        } else {
-//                            Toast.makeText(SignUpActivity.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-//                            progressBar.setVisibility(View.INVISIBLE);
-//                        }
-//                    }
-//                });
-                //                Intent backToLogin = new Intent(SignUpActivity.this, LoginActivity.class);
-                //                startActivity(backToLogin);
             }
         });
     }
