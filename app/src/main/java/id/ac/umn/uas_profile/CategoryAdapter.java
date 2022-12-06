@@ -2,17 +2,16 @@ package id.ac.umn.uas_profile;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -41,7 +40,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.jobDesc.setText(mCurrent.getJobDesc());
         holder.location.setText(mCurrent.getLocation());
         holder.rating.setText(String.valueOf(mCurrent.getRating()));
-        holder.imageView.setImageResource(mCurrent.getImage());
+        Picasso.get().load(mCurrent.getImage()).into(holder.imageView);
     }
 
     @Override
