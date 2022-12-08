@@ -1,5 +1,8 @@
 package id.ac.umn.uas_profile.ui.history;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -27,13 +30,13 @@ public class HistoryViewModel extends ViewModel {
 //        categoryList.add(new CategoryModel(R.drawable.pablo, "Lisha", "Gardening, Cooking", "Alam Sutera, 5.2 km", 4.8));
 //        historyList.add(new CategoryModel(R.drawable.yanfei, "Ash Ketchup", "Cleaning, Gardening, Cooking"));
 
-        mRecyclerView = (RecyclerView) mRecyclerView.findViewById(R.id.rvHistory);
-        mAdapter = new HistoryAdapter(this, historyList);
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        replaceFragment(new HistoryFragment());
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+//    private void replaceFragment(Fragment fragment){
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.frame_layout, fragment);
+//        fragmentTransaction.commit();
+//    }
 }

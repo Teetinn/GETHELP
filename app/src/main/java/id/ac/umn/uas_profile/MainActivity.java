@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -12,6 +13,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import id.ac.umn.uas_profile.databinding.ActivityMainBinding;
+import id.ac.umn.uas_profile.ui.history.HistoryFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +41,16 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+//        replaceFragment(new HistoryFragment());
     }
+
+//    private void replaceFragment(Fragment fragment){
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.frame_layout, fragment);
+//        fragmentTransaction.commit();
+//    }
 
     public void buttonClick(View v) {
         switch (v.getId()) {
@@ -57,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+
 
 
 }
