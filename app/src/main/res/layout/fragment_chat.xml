@@ -7,16 +7,17 @@
     android:orientation="vertical"
     tools:context=".ui.chat.ChatFragment">
 
-
     <TextView
         android:id="@+id/chatMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="15dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Chats"
+        android:text="CONTACT"
         android:textColor="@color/white"
-        android:textSize="28dp"
+        android:textSize="20dp"
         android:background="@color/mainColor"
         android:layout_marginBottom="10dp"/>
 
