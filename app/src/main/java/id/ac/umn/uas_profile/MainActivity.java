@@ -66,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent goToProfile = new Intent(this, ProfileActivity.class);
                 startActivity(goToProfile);
                 break;
+            case R.id.rateButton:
+                Intent goToRating = new Intent(this, RateActivity.class);
+                startActivity(goToRating);
+                break;
         }
     }
 
