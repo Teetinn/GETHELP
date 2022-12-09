@@ -22,9 +22,7 @@ import id.ac.umn.uas_profile.R;
 import id.ac.umn.uas_profile.databinding.FragmentHistoryBinding;
 
 public class HistoryFragment extends Fragment {
-//    private RecyclerView mRecyclerView;
-//    private CategoryAdapter mAdapter;
-//    ArrayList<HistoryModel> historyList = new ArrayList<HistoryModel>();
+
 
     private FragmentHistoryBinding binding;
     private ArrayList<History> historyArrayList;
@@ -35,24 +33,10 @@ public class HistoryFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        HistoryViewModel historyViewModel =
-//                new ViewModelProvider(this).get(HistoryViewModel.class);
 
         binding = FragmentHistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-//        categoryList.add(new CategoryModel(R.drawable.pablo, "Ashli", "Cleaning, Gardening, Cooking", "Serpong, 1.2 km", 4.5));
-//        categoryList.add(new CategoryModel(R.drawable.pablo, "Hasli", "Babysitting, Petsitting", "BSD, 2.5 km", 3.8));
-//        categoryList.add(new CategoryModel(R.drawable.pablo, "Lisha", "Gardening, Cooking", "Alam Sutera, 5.2 km", 4.8));
-//        historyList.add(new CategoryModel(R.drawable.yanfei, "Ash Ketchup", "Cleaning, Gardening, Cooking"));
-
-//        mRecyclerView = (RecyclerView) mRecyclerView.findViewById(R.id.rvHistory);
-//        mAdapter = new HistoryAdapter(this, historyList);
-//        mRecyclerView.setAdapter(mAdapter);
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-//        final TextView textView = binding.textHistory;
-//        historyViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
