@@ -139,6 +139,7 @@
 
 
                 <ImageButton
+                    android:id="@+id/childcareButton"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginLeft="12dp"
@@ -151,6 +152,7 @@
                     android:src="@drawable/ic_childcare" />
 
                 <ImageButton
+                    android:id="@+id/educationButton"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginLeft="12dp"
@@ -163,6 +165,7 @@
                     android:src="@drawable/ic_education" />
 
                 <ImageButton
+                    android:id="@+id/othersButton"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginLeft="12dp"

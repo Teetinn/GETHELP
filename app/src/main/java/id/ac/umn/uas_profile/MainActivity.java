@@ -55,9 +55,12 @@ public class MainActivity extends AppCompatActivity {
     public void buttonClick(View v) {
         switch (v.getId()) {
             case R.id.houseworkButton:
+            case R.id.childcareButton:
+            case R.id.othersButton:
                 Intent goToCategory = new Intent(this, CategoryActivity.class);
                 startActivity(goToCategory);
                 break;
+
 //           case R.id.profilePic:
 //                Intent goToEdit = new Intent(this, EditProfileActivity.class);
 //                startActivity(goToEdit);
