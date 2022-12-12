@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/drawable/ic_location.xml" value="0.2525" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/drawable/rounded_square.xml" value="0.2525" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_category.xml" value="0.4" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_edit_profile.xml" value="0.1621376811594203" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_helper_profile.xml" value="0.21603260869565216" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_rate.xml" value="0.4" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/category_list.xml" value="0.25416666666666665" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/history_list.xml" value="0.264" />
         <entry key="..\:/Erza's 6/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_category.xml" value="0.29393115942028986" />
         <entry key="..\:/Erza's 6/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_edit_profile.xml" value="0.29393115942028986" />
         <entry key="..\:/Erza's 6/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_login.xml" value="0.29393115942028986" />
@@ -27,18 +37,15 @@
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/activity_helper_profile.xml" value="0.18" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/activity_order_screen.xml" value="0.25" />
-        <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/activity_rate.xml" value="0.25" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/category_list.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/fragment_chat.xml" value="0.26875" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/fragment_dashboard.xml" value="0.26875" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/fragment_favorites.xml" value="0.25" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/fragment_history.xml" value="0.2" />
-        <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/fragment_notifications.xml" value="0.26875" />
-        <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/history_list.xml" value="0.4" />
-        <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/list_item.xml" value="0.4621710526315789" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/layout/payment_splash_screen.xml" value="0.1526268115942029" />
         <entry key="..\:/Users/user/Desktop/UAS_PROFILE/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>

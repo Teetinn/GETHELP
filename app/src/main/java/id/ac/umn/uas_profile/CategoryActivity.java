@@ -1,10 +1,13 @@
 package id.ac.umn.uas_profile;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +31,7 @@ import java.util.ArrayList;
 public class CategoryActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private CategoryAdapter mAdapter;
+    private SearchView searchView;
     ArrayList<CategoryModel> categoryList = new ArrayList<CategoryModel>();
     FirebaseFirestore fStore;
     ProgressDialog progressDialog;
@@ -51,6 +55,21 @@ public class CategoryActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         profileImage = findViewById(R.id.profilePic);
+
+        searchView = findViewById(R.id.searchBar);
+        searchView.clearFocus();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                filterList(newText);
+//                return true;
+//            }
+//        });
 
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
@@ -91,4 +110,21 @@ public class CategoryActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void filterList(String text) {
+//        List<Item>
+    }
+
+//    public void buttonClick(View v) {
+//        switch (v.getId()) {
+////           case R.id.profilePic:
+////                Intent goToEdit = new Intent(this, EditProfileActivity.class);
+////                startActivity(goToEdit);
+////                break;
+//            case R.id.profilePic:
+//                Intent goToProfile = new Intent(this, ProfileActivity.class);
+//                startActivity(goToProfile);
+//                break;
+//        }
+//    }
 }
