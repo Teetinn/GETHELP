@@ -27,7 +27,7 @@
             android:paddingBottom="12dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/pablo2"
+                android:id="@+id/profilePicOngoing"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"

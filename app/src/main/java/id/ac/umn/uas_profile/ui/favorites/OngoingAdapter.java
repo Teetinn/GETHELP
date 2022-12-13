@@ -59,7 +59,7 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.MyViewHo
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tvOngoingName);
-            imageView = itemView.findViewById(R.id.profilePicHist);
+            imageView = itemView.findViewById(R.id.profilePicOngoing);
         }
     }
 }

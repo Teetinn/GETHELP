@@ -55,9 +55,9 @@ public class FavoritesFragment extends Fragment {
         recyclerview = view.findViewById(R.id.rvOngoing);
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setHasFixedSize(true);
-        OngoingAdapter histAdapter = new OngoingAdapter(getContext(), ongoingArrayList);
-        recyclerview.setAdapter(histAdapter);
-        histAdapter.notifyDataSetChanged();
+        OngoingAdapter ongoingAdapter = new OngoingAdapter(getContext(), ongoingArrayList);
+        recyclerview.setAdapter(ongoingAdapter);
+        ongoingAdapter.notifyDataSetChanged();
     }
 
     private void dataInitialize(){
