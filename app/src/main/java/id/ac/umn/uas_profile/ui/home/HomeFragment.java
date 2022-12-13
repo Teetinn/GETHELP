@@ -26,6 +26,8 @@ import java.util.ArrayList;
 
 import id.ac.umn.uas_profile.R;
 import id.ac.umn.uas_profile.databinding.FragmentHomeBinding;
+import id.ac.umn.uas_profile.ui.favorites.Ongoing;
+import id.ac.umn.uas_profile.ui.favorites.OngoingAdapter;
 import id.ac.umn.uas_profile.ui.history.HistAdapter;
 import id.ac.umn.uas_profile.ui.history.History;
 
@@ -38,10 +40,11 @@ public class HomeFragment extends Fragment {
     StorageReference storageReference;
 
     private ArrayList<History> historyArrayList;
+    private ArrayList<Ongoing> ongoingArrayList;
     private String[] name;
     private int[] imageView;
     private String[] jobDesc;
-    private RecyclerView recyclerview;
+    private RecyclerView recyclerview, recyclerview2;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -76,7 +79,35 @@ public class HomeFragment extends Fragment {
         HistAdapter histAdapter = new HistAdapter(getContext(), historyArrayList);
         recyclerview.setAdapter(histAdapter);
         histAdapter.notifyDataSetChanged();
+
+        dataInitialize2();
+
+        recyclerview2 = view.findViewById(R.id.rvOngoing);
+        recyclerview2.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerview2.setHasFixedSize(true);
+        OngoingAdapter ongoingAdapter = new OngoingAdapter(getContext(), ongoingArrayList);
+        recyclerview2.setAdapter(ongoingAdapter);
+        ongoingAdapter.notifyDataSetChanged();
     }
+
+    private void dataInitialize2(){
+        ongoingArrayList = new ArrayList<>();
+
+        name = new String[]{
+                getString(R.string.ongoing1),
+                getString(R.string.ongoing1)
+        };
+        imageView = new int[]{
+                R.drawable.pablo,
+                R.drawable.pablo
+        };
+
+        for (int i=0; i< name.length; i++){
+            Ongoing ongoing = new Ongoing(name[i], imageView[i]);
+            ongoingArrayList.add(ongoing);
+        }
+    }
+
 
     private void dataInitialize(){
         historyArrayList = new ArrayList<>();
