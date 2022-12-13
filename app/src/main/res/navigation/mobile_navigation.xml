@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/navigation_favorites"
         android:name="id.ac.umn.uas_profile.ui.favorites.FavoritesFragment"
-        android:label="@string/favorites"
+        android:label="@string/ongoing"
         tools:layout="@layout/fragment_favorites" />
 
     <fragment
