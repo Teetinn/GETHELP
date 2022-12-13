@@ -39,9 +39,9 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull OngoingAdapter.MyViewHolder holder, int position) {
-        Ongoing history = ongoingArrayList.get(position);
-        holder.name.setText(history.name);
-        holder.imageView.setImageResource(history.imageView);
+        Ongoing ongoing = ongoingArrayList.get(position);
+        holder.name.setText(ongoing.name);
+        holder.imageView.setImageResource(ongoing.imageView);
 
     }
 
