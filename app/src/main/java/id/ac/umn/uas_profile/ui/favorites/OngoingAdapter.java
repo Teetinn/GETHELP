@@ -31,7 +31,7 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.MyViewHo
     @Override
     public OngoingAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.history_list, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.ongoing_list, parent, false);
         return new OngoingAdapter.MyViewHolder(v);
 
 
