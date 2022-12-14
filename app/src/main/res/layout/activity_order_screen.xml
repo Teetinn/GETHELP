@@ -84,6 +84,7 @@
 
                     </LinearLayout>
 
+
                     <View
                         android:layout_width="0.5dp"
                         android:layout_height="match_parent"
@@ -100,9 +101,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="100.000"
+                            android:text="price"
                             android:textColor="@color/black"
-                            android:textSize="14dp"/>
+                            android:textSize="12dp"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -174,34 +175,13 @@
             android:textColor="@color/black"
             android:textSize="12dp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:text="Start"
-                android:textSize="10dp"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/etDate"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:ems="8"
-                android:background="@drawable/input_form"
-                android:inputType="datetime" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
@@ -209,6 +189,7 @@
                 android:id="@+id/etDays"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:textAlignment="center"
                 android:ems="2"
                 android:background="@drawable/input_form"
                 android:inputType="date" />
@@ -217,6 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
+                android:layout_marginStart="5dp"
                 android:text="days"
                 android:textSize="10dp"
                 android:textColor="@color/black" />
@@ -233,23 +215,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
+                android:textAlignment="center"
                 android:text="hours"
+                android:layout_marginStart="5dp"
                 android:textSize="10dp"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/etMinutes"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:ems="2"
-                android:background="@drawable/input_form"
-                android:inputType="time" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10dp"
-                android:text="minutes"
                 android:textColor="@color/black" />
 
         </LinearLayout>
@@ -286,15 +255,16 @@
                     android:textColor="@color/black" />
 
                 <TextView
+                    android:id="@+id/tvTotalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp 200.000"
+                    android:text="Rp 0.00"
                     android:textColor="@color/black"
-                    android:textSize="10dp" />
+                    android:textSize="12dp" />
 
                 <View
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp" />
+                    android:layout_height="18dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -354,6 +324,20 @@
             android:fontFamily="@font/poppins_bold"
             android:text="Pay"
             android:textAllCaps="false" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:indeterminateTint="@color/heading"
+            android:indeterminateTintMode="src_in"
+            android:minWidth="50dp"
+            android:minHeight="50dp"
+            android:visibility="invisible" />
 
     </LinearLayout>
 

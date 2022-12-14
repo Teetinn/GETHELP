@@ -56,8 +56,8 @@ public class CategoryActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         profileImage = findViewById(R.id.profilePic);
 
-        searchView = findViewById(R.id.searchBar);
-        searchView.clearFocus();
+//        searchView = findViewById(R.id.searchBar);
+//        searchView.clearFocus();
 //        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 //            @Override
 //            public boolean onQueryTextSubmit(String query) {

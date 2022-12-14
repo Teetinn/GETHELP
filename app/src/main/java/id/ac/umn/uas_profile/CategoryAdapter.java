@@ -64,7 +64,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                 @Override
                 public void onClick(View v) {
                     Intent clickHelperProf = new Intent(context, HelperProfileActivity.class);
-                    clickHelperProf.putExtra("helper", categoryList.get(getAdapterPosition()));
+                    clickHelperProf.putExtra("maidList", categoryList.get(getAdapterPosition()));
                     context.startActivity(clickHelperProf);
                 }
             });
