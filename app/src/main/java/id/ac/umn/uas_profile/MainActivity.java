@@ -62,11 +62,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent goToChildcare = new Intent(this, CategoryActivity.class);
                 startActivity(goToChildcare);
                 break;
+            case R.id.educationButton:
+                Intent goToEducation = new Intent(this, CategoryActivity.class);
+                startActivity(goToEducation);
+                break;
             case R.id.othersButton:
                 Intent goToOthers = new Intent(this, CategoryActivity.class);
                 startActivity(goToOthers);
                 break;
-
 //           case R.id.profilePic:
 //                Intent goToEdit = new Intent(this, EditProfileActivity.class);
 //                startActivity(goToEdit);
