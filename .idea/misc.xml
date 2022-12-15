@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/drawable/ic_location_color.xml" value="0.154" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/drawable/rounded_square.xml" value="0.154" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/drawable/search_box.xml" value="0.154" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_category.xml" value="0.264" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_rate.xml" value="0.2078804347826087" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/category_list.xml" value="0.264" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Erza's 5/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/history_list.xml" value="0.4" />
         <entry key="..\:/Erza's 6/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_category.xml" value="0.29393115942028986" />
         <entry key="..\:/Erza's 6/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_edit_profile.xml" value="0.29393115942028986" />
         <entry key="..\:/Erza's 6/Folder Lain/University/Semester 5/IF570 - Mobile Application Programming/Tasks/GETHELP/app/src/main/res/layout/activity_login.xml" value="0.29393115942028986" />
