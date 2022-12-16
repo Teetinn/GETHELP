@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment {
     FirebaseFirestore fStore;
     String userId;
     StorageReference storageReference;
+    TextView emptyView;
 
     private ArrayList<History> historyArrayList;
     private OngoingAdapter ongoingAdapter;
@@ -94,6 +95,8 @@ public class HomeFragment extends Fragment {
         fetchDataonGoing();
 
         recyclerview2 = view.findViewById(R.id.rvOngoing);
+        emptyView = (TextView) view.findViewById(R.id.empty_view);
+
         recyclerview2.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview2.setHasFixedSize(true);
         ongoingAdapter = new OngoingAdapter(getContext(), ongoingArrayList);
@@ -106,6 +109,7 @@ public class HomeFragment extends Fragment {
         userId = fAuth.getCurrentUser().getUid();
         Log.d(TAG, "fetchData: " + userId);
         ongoingArrayList = new ArrayList<Ongoing>();
+
 
         fStore.collection("users").document(userId).collection("orderList").orderBy("name", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -120,6 +124,8 @@ public class HomeFragment extends Fragment {
                             ongoingArrayList.add(dc.getDocument().toObject(Ongoing.class));
                         }
                         else{
+                            recyclerview2.setVisibility(View.GONE);
+                            emptyView.setVisibility(View.VISIBLE);
                             Log.e("Empty Data", "Order is empty");
                             return;
                         }
