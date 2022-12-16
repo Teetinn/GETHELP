@@ -97,7 +97,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
-                        android:text="Order Completed"
+                        android:text="Order
+                         Completed"
                         android:textSize="11dp"
                         android:textStyle="bold" />
                     
