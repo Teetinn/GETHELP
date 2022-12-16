@@ -9,4 +9,21 @@ public class Ongoing {
         this.name = name;
         this.imageView = imageView;
     }
+
+
+    public String getName(){
+        return name;
+    }
+
+    public int getImageView(){
+        return imageView;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setImageView(int imageView){
+        this.imageView = imageView;
+    }
 }
