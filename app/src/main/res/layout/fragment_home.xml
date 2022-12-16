@@ -251,7 +251,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvOngoing"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="110dp"
                 tools:listitem="@layout/ongoing_list"/>
 
 
@@ -259,7 +259,7 @@
             <TextView
                 android:id="@+id/empty_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="110dp"
                 android:gravity="center"
                 android:visibility="gone"
                 android:text="No Orders Yet" />

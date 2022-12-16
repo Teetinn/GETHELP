@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -105,6 +106,7 @@ public class HomeFragment extends Fragment {
 
     }
 
+
     private void fetchDataHistory() {
         userId = fAuth.getCurrentUser().getUid();
         Log.d(TAG, "fetchData: " + userId);
@@ -118,19 +120,21 @@ public class HomeFragment extends Fragment {
                     Log.e("Firestore error", error.getMessage());
                     return;
                 }
+
                 for (DocumentChange dc : value.getDocumentChanges()) {
                     if (dc.getType() == DocumentChange.Type.ADDED) {
                         if(dc.getDocument().toObject(Ongoing.class).getStatus().equals("History")) {
                             ongoingArrayList.add(dc.getDocument().toObject(Ongoing.class));
                         }
                         else{
-                            recyclerview2.setVisibility(View.GONE);
-                            emptyView.setVisibility(View.VISIBLE);
+
                             Log.e("Empty Data", "Order is empty");
                             return;
                         }
                     }
                     ongoingAdapter.notifyDataSetChanged();
+
+
                 }
             }
         });
@@ -148,6 +152,7 @@ public class HomeFragment extends Fragment {
                     Log.e("Firestore error", error.getMessage());
                     return;
                 }
+
                 for (DocumentChange dc : value.getDocumentChanges()) {
                     if (dc.getType() == DocumentChange.Type.ADDED) {
                         if(dc.getDocument().toObject(Ongoing.class).getStatus().equals("Ongoing")) {
@@ -158,10 +163,22 @@ public class HomeFragment extends Fragment {
                         }
                     }
                     ongoingAdapter.notifyDataSetChanged();
+
+                    recyclerview2.setVisibility(ongoingArrayList.isEmpty() ? View.GONE : View.VISIBLE);
+                    emptyView.setVisibility(ongoingArrayList.isEmpty() ? View.VISIBLE : View.GONE);
+
+                    if(ongoingArrayList.size() > 1) {
+                        ViewGroup.LayoutParams params = recyclerview2.getLayoutParams();
+                        params.height = 600;
+                        recyclerview2.setLayoutParams(params);
+                    }
                 }
             }
         });
     }
+
+
+
 
 
     //    private void dataInitialize(){

@@ -55,6 +55,7 @@ public class OnGoingFragment extends Fragment {
     private ArrayList<Ongoing> ongoingArrayList;
     private OngoingAdapter ongoingAdapter;
     private RecyclerView recyclerview;
+    private TextView emptyView;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     StorageReference storageReference;
@@ -89,6 +90,8 @@ public class OnGoingFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerview = view.findViewById(R.id.rvOngoing);
+        emptyView = view.findViewById(R.id.empty_view);
+
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setHasFixedSize(true);
         ongoingAdapter = new OngoingAdapter(getContext(), ongoingArrayList);
@@ -124,6 +127,8 @@ public class OnGoingFragment extends Fragment {
                         }
                     }
                     ongoingAdapter.notifyDataSetChanged();
+                    recyclerview.setVisibility(ongoingArrayList.isEmpty() ? View.GONE : View.VISIBLE);
+                    emptyView.setVisibility(ongoingArrayList.isEmpty() ? View.VISIBLE : View.GONE);
                 }
             }
         });
