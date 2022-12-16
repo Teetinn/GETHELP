@@ -32,9 +32,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import id.ac.umn.uas_profile.EditProfile;
+import id.ac.umn.uas_profile.FinishedSplashScreen;
+import id.ac.umn.uas_profile.HWorkCategory;
 import id.ac.umn.uas_profile.HelperProfileActivity;
 import id.ac.umn.uas_profile.MainActivity;
+import id.ac.umn.uas_profile.OrderScreenActivity;
+import id.ac.umn.uas_profile.PaymentSplashScreen;
 import id.ac.umn.uas_profile.ProfileActivity;
 import id.ac.umn.uas_profile.R;
 import id.ac.umn.uas_profile.ui.history.HistoryFragment;
@@ -67,6 +72,7 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.MyViewHo
         Ongoing ongoing = ongoingArrayList.get(position);
         holder.name.setText(ongoing.getName());
         Picasso.get().load(ongoing.getImage()).into(holder.imageView);
+
         holder.btnFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,14 +86,17 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.MyViewHo
                                 @Override
                                 public void onSuccess(Void unused) {
 
-//                                    FragmentTransaction fragmentTransaction = getSu;
                                     notifyItemChanged(holder.getLayoutPosition());
                                 }
                             });
+
                             Toast.makeText(context, "Order Finished", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+                Intent test = new Intent(context, FinishedSplashScreen.class);
+                context.startActivity(test);
+
             }
         });
     }

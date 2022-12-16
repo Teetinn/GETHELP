@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,11 +25,8 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.xml.transform.Result;
 
 public class OrderScreenActivity extends AppCompatActivity {
 
@@ -120,11 +116,12 @@ public class OrderScreenActivity extends AppCompatActivity {
 
                 DocumentReference documentReference = fStore.collection("users").document(userId).collection("orderList").document(helper.getDocId());
                 Map<String, Object> order = new HashMap<>();
-                order.put("Name", name);
-                order.put("Fee", fee);
+                order.put("name", name);
+                order.put("fee", fee);
                 order.put("jobDesc", jobDesc);
-                order.put("Phone", pnumber);
+                order.put("phone", pnumber);
                 order.put("image", profImage);
+                order.put("status", "Ongoing");
                 documentReference.set(order).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

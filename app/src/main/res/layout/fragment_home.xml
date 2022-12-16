@@ -116,6 +116,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="12dp"
                 android:orientation="horizontal"
                 android:paddingLeft="50dp"
@@ -246,10 +247,11 @@
                     android:textSize="12dp"/>
             </LinearLayout>
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvOngoing"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="220dp"
                 tools:listitem="@layout/ongoing_list"/>
 
             <TextView

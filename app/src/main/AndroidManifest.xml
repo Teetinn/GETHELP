@@ -16,6 +16,9 @@
         android:theme="@style/Theme.UAS_PROFILE"
         tools:targetApi="31">
         <activity
+            android:name=".FinishedSplashScreen"
+            android:exported="false" />
+        <activity
             android:name=".RateActivity"
             android:exported="false" />
         <activity
@@ -45,6 +48,18 @@
             android:exported="false" />
         <activity
             android:name=".PaymentSplashScreen"
+            android:exported="false" />
+        <activity
+            android:name=".CCareCategory"
+            android:exported="false" />
+        <activity
+            android:name=".HWorkCategory"
+            android:exported="false" />
+        <activity
+            android:name=".EduCategory"
+            android:exported="false" />
+        <activity
+            android:name=".OthersCategory"
             android:exported="false" />
         <activity
             android:name=".SplashScreen"

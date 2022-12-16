@@ -12,6 +12,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:elevation="6dp"
@@ -34,7 +35,7 @@
                 android:src="@drawable/pablo" />
 
             <LinearLayout
-                android:layout_width="180dp"
+                android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="16dp"
@@ -58,6 +59,7 @@
                     android:id="@+id/tvStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="STATUS"
                     android:textColor="@color/black"
                     android:textSize="10dp" />
@@ -66,7 +68,7 @@
                     android:id="@+id/tvStatusDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cleaning up your room.."
+                    android:text="Doing the job..."
                     android:textColor="@color/black"
                     android:textSize="10dp" />
 
@@ -105,10 +107,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="8dp"
-                        android:paddingTop="15dp"
-                        android:text="on
-                                 progress"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="17dp"
+                        android:text="On Progress"
                         android:textSize="11dp"
                         android:textStyle="bold" />
 

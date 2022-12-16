@@ -178,7 +178,7 @@
             android:layout_marginBottom="10dp"
             android:text="Cleaner in Gordon Ramsay Office"
             android:textColor="@color/black"
-            android:textSize="14dp" />
+            android:textSize="12dp" />
 
         <TextView
             android:id="@+id/tvYear2"
@@ -198,7 +198,7 @@
             android:layout_marginBottom="10dp"
             android:text="Cooking in Gordon Ramsay Restaurant"
             android:textColor="@color/black"
-            android:textSize="14dp" />
+            android:textSize="12dp" />
 
         <TextView
             android:id="@+id/tvYear3"
@@ -218,7 +218,7 @@
             android:layout_marginBottom="10dp"
             android:text="Planting trees in Gordon Ramsay House"
             android:textColor="@color/black"
-            android:textSize="14dp" />
+            android:textSize="12dp" />
 
     </LinearLayout>
 

@@ -87,8 +87,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.finishButton:
 //                Intent goToHistFragment
 //                binding.navView.container = R.id.navigation_history;
-                getSupportFragmentManager().beginTransaction().replace(R.id.homeContainer, new HistoryFragment()).commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.container, new HistoryFragment()).commit();
+                Intent mainActivity = new Intent(this, PaymentSplashScreen.class);
+                startActivity(mainActivity);
+                break;
         }
+
     }
 
 }
