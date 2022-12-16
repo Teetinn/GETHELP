@@ -53,6 +53,7 @@ public class HomeFragment extends Fragment {
 
     private ArrayList<History> historyArrayList;
     private OngoingAdapter ongoingAdapter;
+    private HistAdapter histAdapter;
     private ArrayList<Ongoing> ongoingArrayList;
     private String[] name;
     private int[] imageView;
@@ -84,14 +85,16 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-//        fetchDataHistory();
-//
-//        recyclerview = view.findViewById(R.id.rvHistory);
-//        recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-//        recyclerview.setHasFixedSize(true);
-//        HistAdapter histAdapter = new HistAdapter(getContext(), historyArrayList);
-//        recyclerview.setAdapter(histAdapter);
-//        histAdapter.notifyDataSetChanged();
+        fetchDataHistory();
+
+        recyclerview = view.findViewById(R.id.rvHistory);
+        emptyView = (TextView) view.findViewById(R.id.empty_view);
+
+        recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerview.setHasFixedSize(true);
+        histAdapter = new HistAdapter(getContext(), historyArrayList);
+        recyclerview.setAdapter(histAdapter);
+        histAdapter.notifyDataSetChanged();
 
         fetchDataonGoing();
 
@@ -110,8 +113,7 @@ public class HomeFragment extends Fragment {
     private void fetchDataHistory() {
         userId = fAuth.getCurrentUser().getUid();
         Log.d(TAG, "fetchData: " + userId);
-        ongoingArrayList = new ArrayList<Ongoing>();
-
+        historyArrayList = new ArrayList<History>();
 
         fStore.collection("users").document(userId).collection("orderList").orderBy("name", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -120,14 +122,12 @@ public class HomeFragment extends Fragment {
                     Log.e("Firestore error", error.getMessage());
                     return;
                 }
-
                 for (DocumentChange dc : value.getDocumentChanges()) {
                     if (dc.getType() == DocumentChange.Type.ADDED) {
-                        if(dc.getDocument().toObject(Ongoing.class).getStatus().equals("History")) {
-                            ongoingArrayList.add(dc.getDocument().toObject(Ongoing.class));
+                        if(dc.getDocument().toObject(History.class).getStatus().equals("Finish")) {
+                            historyArrayList.add(dc.getDocument().toObject(History.class));
                         }
                         else{
-
                             Log.e("Empty Data", "Order is empty");
                             return;
                         }

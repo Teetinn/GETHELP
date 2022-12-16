@@ -29,9 +29,9 @@
         android:label="@string/call"
         tools:layout="@layout/fragment_chat" />
 
-    <fragment
-        android:id="@+id/navigation_category"
-        android:name="id.ac.umn.uas_profile.CategoryActivity"
-        android:label="Category"
-        tools:layout="@layout/activity_category" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_category"-->
+<!--        android:name="id.ac.umn.uas_profile.CategoryActivity"-->
+<!--        android:label="Category"-->
+<!--        tools:layout="@layout/activity_category" />-->
 </navigation>

@@ -41,7 +41,6 @@ public class HistAdapter extends RecyclerView.Adapter<HistAdapter.MyViewHolder>{
     @NonNull
     @Override
     public HistAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View v = LayoutInflater.from(context).inflate(R.layout.history_list, parent, false);
         return new HistAdapter.MyViewHolder(v);
 
