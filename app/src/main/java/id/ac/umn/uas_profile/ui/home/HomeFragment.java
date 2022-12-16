@@ -2,6 +2,7 @@ package id.ac.umn.uas_profile.ui.home;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
@@ -26,20 +33,24 @@ import java.util.ArrayList;
 
 import id.ac.umn.uas_profile.R;
 import id.ac.umn.uas_profile.databinding.FragmentHomeBinding;
-import id.ac.umn.uas_profile.ui.favorites.Ongoing;
-import id.ac.umn.uas_profile.ui.favorites.OngoingAdapter;
+import id.ac.umn.uas_profile.ui.OnGoing.Ongoing;
+import id.ac.umn.uas_profile.ui.OnGoing.OngoingAdapter;
 import id.ac.umn.uas_profile.ui.history.HistAdapter;
 import id.ac.umn.uas_profile.ui.history.History;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    public static final String TAG = "";
     ImageButton houseworkBtn;
     ImageView profileImage;
     FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String userId;
     StorageReference storageReference;
 
     private ArrayList<History> historyArrayList;
+    private OngoingAdapter ongoingAdapter;
     private ArrayList<Ongoing> ongoingArrayList;
     private String[] name;
     private int[] imageView;
@@ -55,6 +66,7 @@ public class HomeFragment extends Fragment {
         profileImage = root.findViewById(R.id.profilePic);
 
         fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
 
         ProfilePictShow();
@@ -63,7 +75,6 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
 
-
     }
 
 
@@ -71,66 +82,104 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        dataInitialize();
+//        fetchDataHistory();
+//
+//        recyclerview = view.findViewById(R.id.rvHistory);
+//        recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+//        recyclerview.setHasFixedSize(true);
+//        HistAdapter histAdapter = new HistAdapter(getContext(), historyArrayList);
+//        recyclerview.setAdapter(histAdapter);
+//        histAdapter.notifyDataSetChanged();
 
-        recyclerview = view.findViewById(R.id.rvHistory);
-        recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerview.setHasFixedSize(true);
-        HistAdapter histAdapter = new HistAdapter(getContext(), historyArrayList);
-        recyclerview.setAdapter(histAdapter);
-        histAdapter.notifyDataSetChanged();
-
-        dataInitialize2();
+        fetchDataonGoing();
 
         recyclerview2 = view.findViewById(R.id.rvOngoing);
         recyclerview2.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview2.setHasFixedSize(true);
-        OngoingAdapter ongoingAdapter = new OngoingAdapter(getContext(), ongoingArrayList);
+        ongoingAdapter = new OngoingAdapter(getContext(), ongoingArrayList);
         recyclerview2.setAdapter(ongoingAdapter);
         ongoingAdapter.notifyDataSetChanged();
+
     }
 
-    private void dataInitialize2(){
-        ongoingArrayList = new ArrayList<>();
+    private void fetchDataHistory() {
+        userId = fAuth.getCurrentUser().getUid();
+        Log.d(TAG, "fetchData: " + userId);
+        ongoingArrayList = new ArrayList<Ongoing>();
 
-        name = new String[]{
-                getString(R.string.ongoing1),
-                getString(R.string.ongoing1)
-        };
-        imageView = new int[]{
-                R.drawable.pablo,
-                R.drawable.pablo
-        };
+        fStore.collection("users").document(userId).collection("orderList").orderBy("name", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Log.e("Firestore error", error.getMessage());
+                    return;
+                }
+                for (DocumentChange dc : value.getDocumentChanges()) {
+                    if (dc.getType() == DocumentChange.Type.ADDED) {
+                        if(dc.getDocument().toObject(Ongoing.class).getStatus().equals("History")) {
+                            ongoingArrayList.add(dc.getDocument().toObject(Ongoing.class));
+                        }
+                        else{
+                            Log.e("Empty Data", "Order is empty");
+                            return;
+                        }
+                    }
+                    ongoingAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+    }
 
-        for (int i=0; i< name.length; i++){
-            Ongoing ongoing = new Ongoing(name[i], imageView[i]);
-            ongoingArrayList.add(ongoing);
-        }
+    private void fetchDataonGoing() {
+        userId = fAuth.getCurrentUser().getUid();
+        Log.d(TAG, "fetchData: " + userId);
+        ongoingArrayList = new ArrayList<Ongoing>();
+
+        fStore.collection("users").document(userId).collection("orderList").orderBy("name", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Log.e("Firestore error", error.getMessage());
+                    return;
+                }
+                for (DocumentChange dc : value.getDocumentChanges()) {
+                    if (dc.getType() == DocumentChange.Type.ADDED) {
+                        if(dc.getDocument().toObject(Ongoing.class).getStatus().equals("Ongoing")) {
+                            ongoingArrayList.add(dc.getDocument().toObject(Ongoing.class));
+                        }
+                        else{
+                            Log.e("Empty Data", "Order is empty");
+                        }
+                    }
+                    ongoingAdapter.notifyDataSetChanged();
+                }
+            }
+        });
     }
 
 
-    private void dataInitialize(){
-        historyArrayList = new ArrayList<>();
-
-        name = new String[]{
-                getString(R.string.history1),
-                getString(R.string.history1)
-        };
-        imageView = new int[]{
-                R.drawable.pablo,
-                R.drawable.pablo
-        };
-
-        jobDesc = new String[]{
-                getString(R.string.history1),
-                getString(R.string.history1)
-        };
-
-        for (int i=0; i< name.length; i++){
-            History history = new History(name[i], jobDesc[i], imageView[i]);
-            historyArrayList.add(history);
-        }
-    }
+    //    private void dataInitialize(){
+//        historyArrayList = new ArrayList<>();
+//
+//        name = new String[]{
+//                getString(R.string.history1),
+//                getString(R.string.history1)
+//        };
+//        imageView = new int[]{
+//                R.drawable.pablo,
+//                R.drawable.pablo
+//        };
+//
+//        jobDesc = new String[]{
+//                getString(R.string.history1),
+//                getString(R.string.history1)
+//        };
+//
+//        for (int i=0; i< name.length; i++){
+//            History history = new History(name[i], jobDesc[i], imageView[i]);
+//            historyArrayList.add(history);
+//        }
+//    }
     public void ProfilePictShow() {
         StorageReference profileRef = storageReference.child("users/" + fAuth.getCurrentUser().getUid() + "/profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -140,7 +189,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

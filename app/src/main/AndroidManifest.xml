@@ -41,9 +41,6 @@
             android:name=".HelperProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".CategoryActivity"
-            android:exported="false" />
-        <activity
             android:name=".OrderScreenActivity"
             android:exported="false" />
         <activity

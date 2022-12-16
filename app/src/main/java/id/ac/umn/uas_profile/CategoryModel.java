@@ -3,7 +3,6 @@ package id.ac.umn.uas_profile;
 import com.google.firebase.firestore.DocumentId;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 
 public class CategoryModel implements Serializable {
     String docId, name, age, jobDesc, location, image, exp1, exp2, exp3, exptime1, exptime2, exptime3, fee, phone;

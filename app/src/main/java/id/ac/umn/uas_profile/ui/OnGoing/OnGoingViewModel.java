@@ -1,14 +1,14 @@
-package id.ac.umn.uas_profile.ui.favorites;
+package id.ac.umn.uas_profile.ui.OnGoing;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class FavoritesViewModel extends ViewModel {
+public class OnGoingViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public FavoritesViewModel() {
+    public OnGoingViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is favorites fragment");
     }

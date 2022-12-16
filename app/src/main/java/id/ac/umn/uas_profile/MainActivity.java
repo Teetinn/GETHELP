@@ -3,14 +3,20 @@ package id.ac.umn.uas_profile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentReference;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import id.ac.umn.uas_profile.databinding.ActivityMainBinding;
 import id.ac.umn.uas_profile.ui.history.HistoryFragment;
@@ -55,37 +61,34 @@ public class MainActivity extends AppCompatActivity {
     public void buttonClick(View v) {
         switch (v.getId()) {
             case R.id.houseworkButton:
-                Intent goToCategory = new Intent(this, CategoryActivity.class);
+                Intent goToCategory = new Intent(this, HWorkCategory.class);
                 startActivity(goToCategory);
                 break;
             case R.id.childcareButton:
-                Intent goToChildcare = new Intent(this, CategoryActivity.class);
+                Intent goToChildcare = new Intent(this, CCareCategory.class);
                 startActivity(goToChildcare);
                 break;
             case R.id.educationButton:
-                Intent goToEducation = new Intent(this, CategoryActivity.class);
+                Intent goToEducation = new Intent(this, EduCategory.class);
                 startActivity(goToEducation);
                 break;
             case R.id.othersButton:
-                Intent goToOthers = new Intent(this, CategoryActivity.class);
+                Intent goToOthers = new Intent(this, OthersCategory.class);
                 startActivity(goToOthers);
                 break;
-//           case R.id.profilePic:
-//                Intent goToEdit = new Intent(this, EditProfileActivity.class);
-//                startActivity(goToEdit);
-//                break;
             case R.id.profilePic:
                 Intent goToProfile = new Intent(this, ProfileActivity.class);
                 startActivity(goToProfile);
                 break;
-            case R.id.rateButton:
+                case R.id.rateButton:
                 Intent goToRating = new Intent(this, RateActivity.class);
                 startActivity(goToRating);
                 break;
+            case R.id.finishButton:
+//                Intent goToHistFragment
+//                binding.navView.container = R.id.navigation_history;
+                getSupportFragmentManager().beginTransaction().replace(R.id.homeContainer, new HistoryFragment()).commit();
         }
     }
-
-
-
 
 }
