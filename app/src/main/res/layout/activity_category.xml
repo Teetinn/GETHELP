@@ -8,17 +8,22 @@
     tools:context=".CategoryActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="114dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
+        
         <LinearLayout
-            android:layout_width="314dp"
-            android:layout_height="114dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="314dp"
-                android:layout_height="54dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:background="@color/mainColor"
                 android:backgroundTint="@color/mainColor"
                 android:orientation="horizontal">
@@ -27,53 +32,64 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_extrabold"
-                    android:paddingTop="20dp"
-                    android:paddingLeft="20dp"
                     android:text="GETHELP"
                     android:textColor="@color/white"
                     android:textSize="18dp"
                     android:textStyle="bold" />
+                
+                <View
+                    android:layout_width="180dp"
+                    android:layout_height="0dp" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_marginLeft="170dp"
-                    android:layout_marginTop="25dp"
-
                     android:src="@drawable/ic_notification" />
 
-
-
             </LinearLayout>
+            
             <LinearLayout
-                android:layout_width="314dp"
-                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:background="@color/mainColor"
-                android:backgroundTint="@color/mainColor"
-                android:orientation="horizontal">
+                android:backgroundTint="@color/mainColor">
     
-                <androidx.appcompat.widget.SearchView
+<!--                <androidx.appcompat.widget.SearchView-->
+<!--                    android:id="@+id/searchBar"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:paddingStart="-10dp"-->
+<!--                    android:theme="@style/AppSearchView"-->
+<!--                    android:background="@drawable/rounded_square"-->
+<!--                    android:backgroundTint="@color/white"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    app:queryHint="What help do you need?"-->
+<!--                    app:iconifiedByDefault="false" />-->
+                
+                <EditText
                     android:id="@+id/searchBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:paddingLeft="7dp"
                     android:background="@drawable/rounded_square"
                     android:backgroundTint="@color/white"
-                    app:queryHint="What help do you need?"
-                    android:scaleType="centerCrop"
-                    app:iconifiedByDefault="false" />
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="5dp"
+                    android:inputType="textAutoComplete"
+                    android:hint="@string/search_hint" />
                 
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="114dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:gravity="center"
             android:background="@color/mainColor"
             android:backgroundTint="@color/mainColor">
 
@@ -82,8 +98,6 @@
                 android:onClick="buttonClick"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="12dp"
-                android:layout_gravity="right|center"
                 android:src="@drawable/pablo" />
 
         </LinearLayout>
@@ -95,10 +109,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <View
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        android:layout_weight="1" />
+<!--    <View-->
+<!--        android:layout_width="1dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_weight="1" />-->
 
 <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
 <!--        android:id="@+id/nav_view"-->

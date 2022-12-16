@@ -97,7 +97,7 @@
             android:id="@+id/tvHelperAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="25 years old"
+            android:text="years old"
             android:textColor="@color/black"
             android:textSize="14dp" />
 
@@ -129,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:text="Cleaning | Gardening | Cooking"
+            android:text="Description"
             android:textColor="@color/black"
             android:textSize="14dp" />
 
@@ -251,7 +251,7 @@
             android:id="@+id/tvHelperName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ashli Boy Picasso"
+            android:text="Name"
             android:textColor="@color/black"
             android:textSize="14dp" />
 
