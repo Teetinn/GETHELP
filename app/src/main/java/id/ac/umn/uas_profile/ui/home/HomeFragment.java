@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
     FirebaseFirestore fStore;
     String userId;
     StorageReference storageReference;
-    TextView emptyView;
+    TextView emptyView, emptyView2;
 
     private ArrayList<History> historyArrayList;
     private OngoingAdapter ongoingAdapter;
@@ -100,6 +100,7 @@ public class HomeFragment extends Fragment {
 
         recyclerview2 = view.findViewById(R.id.rvOngoing);
         emptyView = (TextView) view.findViewById(R.id.empty_view);
+        emptyView2 = (TextView) view.findViewById(R.id.empty_view2);
 
         recyclerview2.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview2.setHasFixedSize(true);
@@ -136,7 +137,11 @@ public class HomeFragment extends Fragment {
 
 
                 }
+                recyclerview.setVisibility(historyArrayList.isEmpty() ? View.GONE : View.VISIBLE);
+                emptyView2.setVisibility(historyArrayList.isEmpty() ? View.VISIBLE : View.GONE);
             }
+
+
         });
     }
 
@@ -164,15 +169,16 @@ public class HomeFragment extends Fragment {
                     }
                     ongoingAdapter.notifyDataSetChanged();
 
-                    recyclerview2.setVisibility(ongoingArrayList.isEmpty() ? View.GONE : View.VISIBLE);
-                    emptyView.setVisibility(ongoingArrayList.isEmpty() ? View.VISIBLE : View.GONE);
 
-                    if(ongoingArrayList.size() > 1) {
-                        ViewGroup.LayoutParams params = recyclerview2.getLayoutParams();
-                        params.height = 600;
-                        recyclerview2.setLayoutParams(params);
-                    }
+//                    if(ongoingArrayList.size() > 1) {
+//                        ViewGroup.LayoutParams params = recyclerview2.getLayoutParams();
+//                        params.height = 600;
+//                        recyclerview2.setLayoutParams(params);
+//                    }
                 }
+
+                recyclerview2.setVisibility(ongoingArrayList.isEmpty() ? View.GONE : View.VISIBLE);
+                emptyView.setVisibility(ongoingArrayList.isEmpty() ? View.VISIBLE : View.GONE);
             }
         });
     }
