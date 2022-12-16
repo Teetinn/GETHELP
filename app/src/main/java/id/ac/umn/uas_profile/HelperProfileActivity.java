@@ -61,6 +61,7 @@ public class HelperProfileActivity extends AppCompatActivity {
         HName.setText(helper.getName());
         HAge.setText(helper.getAge());
         HDesc.setText(helper.getJobDesc());
+        HRating.setText(helper.getRating());
         HExpTime1.setText(helper.getExptime1());
         HExpTime2.setText(helper.getExptime2());
         HExpTime3.setText(helper.getExptime3());

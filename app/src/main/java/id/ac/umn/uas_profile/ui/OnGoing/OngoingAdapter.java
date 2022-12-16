@@ -85,7 +85,6 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.MyViewHo
                             documentReference.update("status", "Finish").addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-
                                     notifyItemChanged(holder.getLayoutPosition());
                                 }
                             });

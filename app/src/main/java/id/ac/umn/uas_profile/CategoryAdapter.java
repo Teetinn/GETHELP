@@ -41,7 +41,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.name.setText(mCurrent.getName());
         holder.jobDesc.setText(mCurrent.getJobDesc());
         holder.location.setText(mCurrent.getLocation());
-        holder.rating.setText(String.valueOf(mCurrent.getRating()));
+        holder.rating.setText(mCurrent.getRating());
         Picasso.get().load(mCurrent.getImage()).into(holder.imageView);
     }
 

@@ -49,7 +49,6 @@ import id.ac.umn.uas_profile.ui.history.HistoryFragment;
 
 public class OnGoingFragment extends Fragment {
 
-
     public static final String TAG = "";
     private FragmentFavoritesBinding binding;
     private ArrayList<Ongoing> ongoingArrayList;
@@ -66,6 +65,7 @@ public class OnGoingFragment extends Fragment {
         super.onCreate(savedInstanceState);
         fStore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
         fetchData();
     }
 
@@ -96,11 +96,6 @@ public class OnGoingFragment extends Fragment {
         recyclerview.setHasFixedSize(true);
         ongoingAdapter = new OngoingAdapter(getContext(), ongoingArrayList);
         recyclerview.setAdapter(ongoingAdapter);
-
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
-        storageReference = FirebaseStorage.getInstance().getReference();
-
 
 
     }

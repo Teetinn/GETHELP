@@ -5,15 +5,15 @@ import com.google.firebase.firestore.DocumentId;
 import java.io.Serializable;
 
 public class CategoryModel implements Serializable {
-    String docId, name, age, jobDesc, location, image, exp1, exp2, exp3, exptime1, exptime2, exptime3, fee, phone;
-    double rating;
+    String docId, name, age, jobDesc, location, image, exp1, exp2, exp3,
+            exptime1, exptime2, exptime3, fee, phone, rating;
 
     public CategoryModel() {
     }
 
     public CategoryModel(String docId, String image, String name, String age, String jobDesc, String location,
                          String exp1, String exp2, String exp3, String exptime1, String exptime2,
-                         String exptime3, String fee, String phone, double rating) {
+                         String exptime3, String fee, String phone, String rating) {
         this.docId = docId;
         this.name = name;
         this.jobDesc = jobDesc;
@@ -65,9 +65,9 @@ public class CategoryModel implements Serializable {
         this.image = image;
     }
 
-    public double getRating() { return rating; }
+    public String getRating() { return rating; }
 
-    public void setRating(double rating) { this.rating = rating; }
+    public void setRating(String rating) { this.rating = rating; }
 
     public String getExp1() { return exp1; }
 
