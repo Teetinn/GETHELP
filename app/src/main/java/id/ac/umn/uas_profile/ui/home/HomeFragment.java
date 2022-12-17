@@ -1,11 +1,13 @@
 package id.ac.umn.uas_profile.ui.home;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,7 +34,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import id.ac.umn.uas_profile.MainActivity;
 import id.ac.umn.uas_profile.R;
+import id.ac.umn.uas_profile.RateActivity;
 import id.ac.umn.uas_profile.databinding.FragmentHomeBinding;
 import id.ac.umn.uas_profile.ui.OnGoing.Ongoing;
 import id.ac.umn.uas_profile.ui.OnGoing.OngoingAdapter;
@@ -59,6 +63,7 @@ public class HomeFragment extends Fragment {
     private int[] imageView;
     private String[] jobDesc;
     private RecyclerView recyclerview, recyclerview2;
+    Button btnBill, btnRate;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -89,6 +94,7 @@ public class HomeFragment extends Fragment {
 
         recyclerview = view.findViewById(R.id.rvHistory);
         emptyView = (TextView) view.findViewById(R.id.empty_view);
+        btnRate = view.findViewById(R.id.rateButton);
 
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setHasFixedSize(true);
@@ -107,6 +113,9 @@ public class HomeFragment extends Fragment {
         ongoingAdapter = new OngoingAdapter(getContext(), ongoingArrayList);
         recyclerview2.setAdapter(ongoingAdapter);
         ongoingAdapter.notifyDataSetChanged();
+
+
+
 
     }
 

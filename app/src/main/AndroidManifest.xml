@@ -16,6 +16,9 @@
         android:theme="@style/Theme.UAS_PROFILE"
         tools:targetApi="31">
         <activity
+            android:name=".RateSplashScreen"
+            android:exported="false" />
+        <activity
             android:name=".FinishedSplashScreen"
             android:exported="false" />
         <activity

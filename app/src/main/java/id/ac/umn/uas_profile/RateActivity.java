@@ -26,7 +26,7 @@ public class RateActivity extends AppCompatActivity {
     TextView RName, RDate, RBookid, RjobDesc, RMaidFare, RPlatFee, RTotalPrice;
     History rating;
     ImageView RPic;
-    Button btnBill;
+    Button btnBill, btnRate;
     String PlatFee;
     FirebaseAuth fAuth;
     String totalPrice;
@@ -46,7 +46,8 @@ public class RateActivity extends AppCompatActivity {
         RMaidFare = findViewById(R.id.tvMaidFare);
         RPlatFee = findViewById(R.id.tvPlatformFee);
         RTotalPrice = findViewById(R.id.tvTotal);
-        btnBill = findViewById(R.id.btnDownBill);
+        btnRate = findViewById(R.id.rateButton);
+
         RPic = findViewById(R.id.profilePic);
 
         fAuth = FirebaseAuth.getInstance();
@@ -69,22 +70,29 @@ public class RateActivity extends AppCompatActivity {
         RMaidFare.setText("Rp " + rating.getFee());
         Picasso.get().load(rating.getImage()).into(RPic);
 
-        btnBill.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToHome = new Intent(RateActivity.this, MainActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putInt("VAL", 1);
 
-                goToHome.putExtras(bundle);
-                startActivity(goToHome);
-            }
-        });
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 myRating = ratingBar.getRating();
+
+
+
+                Intent goToRateSplash = new Intent(RateActivity.this, RateSplashScreen.class);
+                startActivity(goToRateSplash);
+
+
+//                btnBill.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                    Intent goToHome = new Intent(RateActivity.this, MainActivity.class);
+//
+//                            btnRate.setVisibility(View.GONE);
+//
+//                    startActivity(goToHome);
+//                    }
+//                });
                 Toast.makeText(RateActivity.this, "Thank you for rating us!", Toast.LENGTH_SHORT).show();
             }
         });

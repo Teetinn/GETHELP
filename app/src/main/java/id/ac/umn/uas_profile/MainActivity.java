@@ -3,6 +3,7 @@ package id.ac.umn.uas_profile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,15 +26,11 @@ import id.ac.umn.uas_profile.ui.history.HistoryFragment;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private TextView emptyView;
+    Button btnBill, btnRate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-//        View view = inflater.inflate(R.layout.fragment_home, container, false);
-//        ImageButton houseworkBtn = (ImageButton) view.findViewById(R.id.houseworkButton);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -88,10 +85,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent goToRating = new Intent(this, RateActivity.class);
                 startActivity(goToRating);
                 break;
-            case R.id.finishButton:
-                Intent mainActivity = new Intent(this, PaymentSplashScreen.class);
-                startActivity(mainActivity);
-                break;
+//            case R.id.finishButton:
+//                Intent mainActivity = new Intent(this, PaymentSplashScreen.class);
+//                startActivity(mainActivity);
+//                break;
+//            case R.id.btnDownBill:
+//
+//                Intent goToRateSplash = new Intent(this, PaymentSplashScreen.class);
+//                startActivity(goToRateSplash);
         }
 
     }
