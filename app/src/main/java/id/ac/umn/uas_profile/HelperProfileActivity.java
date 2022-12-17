@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -54,6 +55,7 @@ public class HelperProfileActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
+        final FirebaseUser user = fAuth.getCurrentUser();
 
         Intent helperIntent = getIntent();
         helper = (CategoryModel) helperIntent.getSerializableExtra("maidList");
@@ -75,12 +77,17 @@ public class HelperProfileActivity extends AppCompatActivity {
         btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent orderScreenActivity = new Intent(HelperProfileActivity.this, OrderScreenActivity.class);
-                orderScreenActivity.putExtra("maidList", helper);
-                startActivity(orderScreenActivity);
+                if (!user.isEmailVerified()) {
+                    Toast.makeText(HelperProfileActivity.this, "Please Verify Your Email in Profile Menu to Booking Maid!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent orderScreenActivity = new Intent(HelperProfileActivity.this, OrderScreenActivity.class);
+                    orderScreenActivity.putExtra("maidList", helper);
+                    startActivity(orderScreenActivity);
+                }
             }
         });
-    }
+        }
+
 
     private static String formatNumberCurrency(String number) {
         DecimalFormat formatter = new DecimalFormat("###,###,##0.00");

@@ -183,32 +183,6 @@ public class HomeFragment extends Fragment {
         });
     }
 
-
-
-
-
-    //    private void dataInitialize(){
-//        historyArrayList = new ArrayList<>();
-//
-//        name = new String[]{
-//                getString(R.string.history1),
-//                getString(R.string.history1)
-//        };
-//        imageView = new int[]{
-//                R.drawable.pablo,
-//                R.drawable.pablo
-//        };
-//
-//        jobDesc = new String[]{
-//                getString(R.string.history1),
-//                getString(R.string.history1)
-//        };
-//
-//        for (int i=0; i< name.length; i++){
-//            History history = new History(name[i], jobDesc[i], imageView[i]);
-//            historyArrayList.add(history);
-//        }
-//    }
     public void ProfilePictShow() {
         StorageReference profileRef = storageReference.child("users/" + fAuth.getCurrentUser().getUid() + "/profile.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

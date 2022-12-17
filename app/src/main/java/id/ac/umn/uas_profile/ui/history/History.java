@@ -6,15 +6,19 @@ import java.io.Serializable;
 
 public class History implements Serializable {
 
-        String docId, name, status ,image;
+        String docId, name, status ,image, date, fee, jobDesc, phone;
 
         public History() { }
 
-        public History(String docId, String name, String status, String image) {
+    public History(String docId, String name, String status, String image, String date, String free, String jobDesc, String phone) {
             this.docId = docId;
             this.name = name;
             this.image = image;
             this.status = status;
+            this.date = date;
+            this.fee = fee;
+            this.jobDesc = jobDesc;
+            this.phone = phone;
         }
 
         public String getName() {
@@ -40,6 +44,22 @@ public class History implements Serializable {
         public void setImage(String image) {
             this.image = image;
         }
+
+    public String getDate() { return date; }
+
+    public void setDate(String date) { this.date = date; }
+
+    public String getFee() { return fee; }
+
+    public void setFee(String fee) { this.fee = fee; }
+
+    public String getJobDesc() { return jobDesc; }
+
+    public void setJobDesc(String jobDesc) { this.jobDesc = jobDesc; }
+
+    public String getPhone() { return phone; }
+
+    public void setPhone(String phone) { this.phone = phone; }
 
         @DocumentId
         public String getDocId() {

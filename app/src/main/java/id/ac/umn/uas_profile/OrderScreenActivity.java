@@ -24,7 +24,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +39,7 @@ public class OrderScreenActivity extends AppCompatActivity {
     EditText etDays, etHours;
     ImageView HImage;
     FirebaseAuth fAuth;
-    String userId;
+    String userId, TotalPrice;
     ProgressBar progressBar;
     FirebaseUser user;
     FirebaseFirestore fStore;
@@ -58,6 +60,7 @@ public class OrderScreenActivity extends AppCompatActivity {
         TPrice = findViewById(R.id.tvTotalPrice);
         progressBar = findViewById(R.id.progressBar);
 
+        Calendar calendar = Calendar.getInstance();
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userId = fAuth.getCurrentUser().getUid();
@@ -88,6 +91,7 @@ public class OrderScreenActivity extends AppCompatActivity {
                     a = a * 24;
                     d = (a+b) * c;
                     TPrice.setText("Rp " + formatNumberCurrency(String.valueOf(d)));
+                    TotalPrice = String.valueOf(d);
                 }
             }
             @Override
@@ -109,10 +113,11 @@ public class OrderScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = helper.getName().trim();
-                String fee = TPrice.getText().toString().trim();
+                String fee = TotalPrice.trim();
                 String pnumber = helper.getPhone().trim();
                 String jobDesc = helper.getJobDesc().trim();
                 String profImage = helper.getImage().trim();
+                String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
                 DocumentReference documentReference = fStore.collection("users").document(userId).collection("orderList").document(helper.getDocId());
                 Map<String, Object> order = new HashMap<>();
@@ -122,6 +127,7 @@ public class OrderScreenActivity extends AppCompatActivity {
                 order.put("phone", pnumber);
                 order.put("image", profImage);
                 order.put("status", "Ongoing");
+                order.put("date", currentDate);
                 documentReference.set(order).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

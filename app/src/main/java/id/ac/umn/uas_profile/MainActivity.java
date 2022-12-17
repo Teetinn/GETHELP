@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+
 //        replaceFragment(new HistoryFragment());
     }
 
@@ -83,14 +84,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent goToProfile = new Intent(this, ProfileActivity.class);
                 startActivity(goToProfile);
                 break;
-                case R.id.rateButton:
+            case R.id.rateButton:
                 Intent goToRating = new Intent(this, RateActivity.class);
                 startActivity(goToRating);
                 break;
             case R.id.finishButton:
-//                Intent goToHistFragment
-//                binding.navView.container = R.id.navigation_history;
-//                getSupportFragmentManager().beginTransaction().replace(R.id.container, new HistoryFragment()).commit();
                 Intent mainActivity = new Intent(this, PaymentSplashScreen.class);
                 startActivity(mainActivity);
                 break;

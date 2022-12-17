@@ -55,6 +55,7 @@ public class HistAdapter extends RecyclerView.Adapter<HistAdapter.MyViewHolder>{
             @Override
             public void onClick(View v) {
                 Intent ratingIntent = new Intent(context, RateActivity.class);
+                ratingIntent.putExtra("orderList", history);
                 context.startActivity(ratingIntent);
 
             }

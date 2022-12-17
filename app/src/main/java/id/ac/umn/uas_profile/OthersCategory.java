@@ -1,9 +1,11 @@
 package id.ac.umn.uas_profile;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
@@ -113,16 +115,8 @@ public class OthersCategory extends AppCompatActivity {
 //        List<Item>
     }
 
-//    public void buttonClick(View v) {
-//        switch (v.getId()) {
-////           case R.id.profilePic:
-////                Intent goToEdit = new Intent(this, EditProfileActivity.class);
-////                startActivity(goToEdit);
-////                break;
-//            case R.id.profilePic:
-//                Intent goToProfile = new Intent(this, ProfileActivity.class);
-//                startActivity(goToProfile);
-//                break;
-//        }
-//    }
+    public void buttonClick(View view) {
+        Intent goToProfile = new Intent(this, ProfileActivity.class);
+        startActivity(goToProfile);
+    }
 }
