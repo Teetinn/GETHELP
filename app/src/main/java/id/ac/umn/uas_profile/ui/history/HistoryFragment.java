@@ -76,7 +76,7 @@ public class HistoryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerview = view.findViewById(R.id.rvHistory);
-        emptyView = view.findViewById(R.id.empty_view);
+        emptyView = view.findViewById(R.id.empty_viewHistory);
 
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setHasFixedSize(true);
@@ -107,8 +107,8 @@ public class HistoryFragment extends Fragment {
                         }
                     }
                     histAdapter.notifyDataSetChanged();
-//                    recyclerview.setVisibility(historyArrayList.isEmpty() ? View.GONE : View.VISIBLE);
-//                    emptyView.setVisibility(historyArrayList.isEmpty() ? View.VISIBLE : View.GONE);
+                    recyclerview.setVisibility(historyArrayList.isEmpty() ? View.GONE : View.VISIBLE);
+                    emptyView.setVisibility(historyArrayList.isEmpty() ? View.VISIBLE : View.GONE);
                 }
             }
         });

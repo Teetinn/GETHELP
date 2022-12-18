@@ -48,6 +48,7 @@ public class ChatFragment extends Fragment {
     private ArrayList<Chat> chatArrayList;
     private ChatAdapter chatAdapter;
     private RecyclerView recyclerview;
+    TextView emptyView;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     StorageReference storageReference;
@@ -84,6 +85,8 @@ public class ChatFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         recyclerview = view.findViewById(R.id.rvChat);
+        emptyView = view.findViewById(R.id.empty_viewChat);
+
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setHasFixedSize(true);
         chatAdapter = new ChatAdapter(getContext(), chatArrayList);
@@ -113,8 +116,8 @@ public class ChatFragment extends Fragment {
                         }
                     }
                     chatAdapter.notifyDataSetChanged();
-//                    recyclerview.setVisibility(historyArrayList.isEmpty() ? View.GONE : View.VISIBLE);
-//                    emptyView.setVisibility(historyArrayList.isEmpty() ? View.VISIBLE : View.GONE);
+                    recyclerview.setVisibility(chatArrayList.isEmpty() ? View.GONE : View.VISIBLE);
+                    emptyView.setVisibility(chatArrayList.isEmpty() ? View.VISIBLE : View.GONE);
                 }
             }
         });
