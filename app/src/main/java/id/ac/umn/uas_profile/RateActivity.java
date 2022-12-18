@@ -46,7 +46,7 @@ public class RateActivity extends AppCompatActivity {
         RMaidFare = findViewById(R.id.tvMaidFare);
         RPlatFee = findViewById(R.id.tvPlatformFee);
         RTotalPrice = findViewById(R.id.tvTotal);
-        btnRate = findViewById(R.id.rateButton);
+//        btnRate = findViewById(R.id.rateButton);
 
         RPic = findViewById(R.id.profilePic);
 
@@ -77,20 +77,20 @@ public class RateActivity extends AppCompatActivity {
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 myRating = ratingBar.getRating();
 
-
-
                 Intent goToRateSplash = new Intent(RateActivity.this, RateSplashScreen.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("VAL", 1);
+////                btnRate.setVisibility(View.GONE);
+//                Intent goToHome = new Intent(RateActivity.this, MainActivity.class);
+//                goToHome.putExtras(bundle);
+//
+//                startActivity(goToHome);
                 startActivity(goToRateSplash);
-
 
 //                btnBill.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View view) {
-//                    Intent goToHome = new Intent(RateActivity.this, MainActivity.class);
-//
-//                            btnRate.setVisibility(View.GONE);
-//
-//                    startActivity(goToHome);
+
 //                    }
 //                });
                 Toast.makeText(RateActivity.this, "Thank you for rating us!", Toast.LENGTH_SHORT).show();

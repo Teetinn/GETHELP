@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        btnRate = findViewById(R.id.rateButton);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -47,7 +49,12 @@ public class MainActivity extends AppCompatActivity {
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-
+//        Bundle bun=getIntent().getExtras();
+//        int val=bun.getInt("VAL");
+//        if(val==1)
+//        {
+//            btnRate.setVisibility(View.GONE);
+//        }
 //        replaceFragment(new HistoryFragment());
     }
 
