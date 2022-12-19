@@ -6,11 +6,11 @@ import java.io.Serializable;
 
 public class History implements Serializable {
 
-        String docId, name, status ,image, date, fee, jobDesc, phone;
+        String docId, name, status ,image, date, fee, jobDesc, phone, Hfee, userAddress;
 
         public History() { }
 
-    public History(String docId, String name, String status, String image, String date, String free, String jobDesc, String phone) {
+    public History(String docId, String name, String status, String image, String date, String fee, String jobDesc, String phone, String Hfee, String userAddress) {
             this.docId = docId;
             this.name = name;
             this.image = image;
@@ -19,6 +19,8 @@ public class History implements Serializable {
             this.fee = fee;
             this.jobDesc = jobDesc;
             this.phone = phone;
+            this.Hfee = Hfee;
+            this.userAddress = userAddress;
         }
 
         public String getName() {
@@ -45,21 +47,29 @@ public class History implements Serializable {
             this.image = image;
         }
 
-    public String getDate() { return date; }
+        public String getDate() { return date; }
 
-    public void setDate(String date) { this.date = date; }
+        public void setDate(String date) { this.date = date; }
 
-    public String getFee() { return fee; }
+        public String getFee() { return fee; }
 
-    public void setFee(String fee) { this.fee = fee; }
+        public void setFee(String fee) { this.fee = fee; }
 
-    public String getJobDesc() { return jobDesc; }
+        public String getJobDesc() { return jobDesc; }
 
-    public void setJobDesc(String jobDesc) { this.jobDesc = jobDesc; }
+        public void setJobDesc(String jobDesc) { this.jobDesc = jobDesc; }
 
-    public String getPhone() { return phone; }
+        public String getPhone() { return phone; }
 
-    public void setPhone(String phone) { this.phone = phone; }
+        public void setPhone(String phone) { this.phone = phone; }
+
+        public String getHFee() { return Hfee; }
+
+        public void setHFee(String helperfee) { Hfee = helperfee; }
+
+        public String getUserAddress() { return userAddress; }
+
+        public void setUserAddress(String userAddress) { this.userAddress = userAddress;}
 
         @DocumentId
         public String getDocId() {

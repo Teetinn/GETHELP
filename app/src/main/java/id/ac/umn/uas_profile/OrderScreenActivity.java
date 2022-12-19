@@ -35,11 +35,11 @@ public class OrderScreenActivity extends AppCompatActivity {
     public static final String TAG = "TAG";
     Button btnPay;
     private CategoryModel helper ;
-    TextView HName, HDesc, HFee, TPrice;
-    EditText etDays, etHours;
+    TextView HName, HDesc, HFee, TPrice, PlatformFee;
+    EditText etDays, etHours, etAddress;
     ImageView HImage;
     FirebaseAuth fAuth;
-    String userId, TotalPrice;
+    String userId, TotalPrice, PlatFee, HPrice;
     ProgressBar progressBar;
     FirebaseUser user;
     FirebaseFirestore fStore;
@@ -59,6 +59,8 @@ public class OrderScreenActivity extends AppCompatActivity {
         etHours = findViewById(R.id.etHours);
         TPrice = findViewById(R.id.tvTotalPrice);
         progressBar = findViewById(R.id.progressBar);
+        etAddress = findViewById(R.id.etAddress);
+        PlatformFee = findViewById(R.id.tvPlatformFee);
 
         Calendar calendar = Calendar.getInstance();
         fAuth = FirebaseAuth.getInstance();
@@ -66,6 +68,8 @@ public class OrderScreenActivity extends AppCompatActivity {
         userId = fAuth.getCurrentUser().getUid();
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        PlatFee = ("50000");
+        PlatformFee.setText("Rp 50,000");
         etDays.setText("0");
         etHours.setText("0");
 
@@ -76,7 +80,7 @@ public class OrderScreenActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (!etDays.getText().toString().equals("") && !etHours.getText().toString().equals("")) {
-                    double a,b,c,d;
+                    double a,b,c,d,e,f;
 
                     if(etDays.getText().toString().length() == 0) {
                         etDays.setText("0");
@@ -88,10 +92,14 @@ public class OrderScreenActivity extends AppCompatActivity {
                     a = Double.parseDouble(etDays.getText().toString());
                     b = Double.parseDouble(etHours.getText().toString());
                     c = Double.parseDouble(helper.getFee());
+                    e = Double.parseDouble(PlatFee);
                     a = a * 24;
-                    d = (a+b) * c;
-                    TPrice.setText("Rp " + formatNumberCurrency(String.valueOf(d)));
-                    TotalPrice = String.valueOf(d);
+                    d = ((a+b) * c);
+                    f = d + e;
+                    TPrice.setText("Rp " + formatNumberCurrency(String.valueOf(f)));
+                    HPrice = String.valueOf(d);
+                    TotalPrice = String.valueOf(f);
+
                 }
             }
             @Override
@@ -106,7 +114,7 @@ public class OrderScreenActivity extends AppCompatActivity {
 
         HName.setText(helper.getName());
         HDesc.setText(helper.getJobDesc());
-        HFee.setText(helper.getFee());
+        HFee.setText("Rp " + formatNumberCurrency(helper.getFee()));
         Picasso.get().load(helper.getImage()).into(HImage);
 
         btnPay.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +122,8 @@ public class OrderScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = helper.getName().trim();
                 String fee = TotalPrice.trim();
+                String HFee = HPrice.trim();
+                String userAddress = etAddress.getText().toString().trim();
                 String pnumber = helper.getPhone().trim();
                 String jobDesc = helper.getJobDesc().trim();
                 String profImage = helper.getImage().trim();
@@ -123,6 +133,8 @@ public class OrderScreenActivity extends AppCompatActivity {
                 Map<String, Object> order = new HashMap<>();
                 order.put("name", name);
                 order.put("fee", fee);
+                order.put("Hfee", HFee);
+                order.put("userAddress", userAddress);
                 order.put("jobDesc", jobDesc);
                 order.put("phone", pnumber);
                 order.put("image", profImage);

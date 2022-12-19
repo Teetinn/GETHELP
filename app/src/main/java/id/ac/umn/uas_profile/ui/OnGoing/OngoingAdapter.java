@@ -88,8 +88,6 @@ public class OngoingAdapter extends RecyclerView.Adapter<OngoingAdapter.MyViewHo
                                     notifyItemChanged(holder.getLayoutPosition());
                                 }
                             });
-
-                            Toast.makeText(context, "Order Finished", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
