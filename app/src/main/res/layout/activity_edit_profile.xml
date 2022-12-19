@@ -150,6 +150,18 @@
             android:onClick="resetPassLocal"
             android:text="@string/changeP"
             tools:ignore="TouchTargetSizeCheck" />
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/heading"
+            android:indeterminateTintMode="src_in"
+            android:minWidth="30dp"
+            android:minHeight="30dp"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
@@ -163,4 +175,17 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="Update" />
 
+    <Button
+        android:id="@+id/btnDelAcc"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Red_delacc"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Delete Account" />
+
+
+
 </LinearLayout>
+

@@ -22,5 +22,6 @@
     <color name="gray">#bfbfbf</color>
 
     <color name="Red_logout">#FF4B4B</color>
+    <color name="Red_delacc">#F32121</color>
     <color name="VerifyEmail">#A2A2A2</color>
 </resources>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,8 +20,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -40,11 +43,12 @@ public class EditProfile extends AppCompatActivity {
     EditText profileName, profileEmail, profilePNumber;
     ImageView profileImageView;
     String userId;
-    Button btnresendCode, btnupdateProfile;
+    Button btnresendCode, btnupdateProfile, btndeleteAccount;
     FirebaseAuth fAuth;
     FirebaseUser user;
     FirebaseFirestore fStore;
     StorageReference storageReference;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,8 @@ public class EditProfile extends AppCompatActivity {
         profileImageView = findViewById(R.id.etprofilePic);
         btnupdateProfile = findViewById(R.id.btnUpdateInfo);
         changePicture = findViewById(R.id.tvChangePict);
+        btndeleteAccount = findViewById(R.id.btnDelAcc);
+        progressBar = findViewById(R.id.progressBar1);
 
         profileName.setText(Name);
         profileEmail.setText(Email);
@@ -141,6 +147,44 @@ public class EditProfile extends AppCompatActivity {
             }
         });
 
+        // Delete Account
+        btndeleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(EditProfile.this);
+                dialog.setTitle("Are you sure?");
+                dialog.setMessage("Deleting this account will result in completely removing you " +
+                        "account from the system and you won't be able to access the app.");
+                dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        progressBar.setVisibility(View.VISIBLE);
+                        user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                progressBar.setVisibility(View.INVISIBLE);
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(EditProfile.this, "Account Deleted", Toast.LENGTH_LONG).show();
+                                    Intent delAcc = new Intent(EditProfile.this, LoginActivity.class);
+                                    startActivity(delAcc);
+                                } else {
+                                    Toast.makeText(EditProfile.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                    }
+                });
+                dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                AlertDialog alertDialog = dialog.create();
+                alertDialog.show();
+            }
+        });
 
         if (!user.isEmailVerified()) {
             verifyMsg.setVisibility(View.VISIBLE);
